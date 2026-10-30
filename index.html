@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ko" data-deck="math-proof-29-30">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공통수학2 | 명제의 증명 활동 수업</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/N-lifescience/resonance@2/engine/exploragram.css">
+<script defer src="https://cdn.jsdelivr.net/gh/N-lifescience/resonance@2/engine/exploragram.js"></script>
+<style>
+:root{--accent:#2563eb;--ink:#172554;--soft:#eff6ff;--line:#cbd5e1}
+body[data-theme="ppt"]{background:#f8fbff}
+.slide{color:#172033}
+.slide h1{color:#15346b;letter-spacing:-.04em}
+.slide h2{color:#1d4ed8}
+.band{background:#163b75!important}
+.kicker{color:#2563eb}
+.card{background:#fff;border:2px solid #dbeafe;border-radius:18px;padding:18px 22px;box-shadow:0 5px 18px #1e3a8a0d}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.callout{background:#eff6ff;border-left:7px solid #3b82f6;border-radius:12px;padding:15px 20px}
+.warn{background:#fff7ed;border-left:7px solid #f59e0b;border-radius:12px;padding:14px 18px}
+.big{font-size:1.22em;font-weight:750}
+.muted{color:#64748b}
+.mathline{font-size:1.25em;font-weight:650;line-height:1.65}
+.tag{display:inline-block;border-radius:999px;padding:5px 13px;background:#dbeafe;color:#1d4ed8;font-weight:800;font-size:.78em}
+.blank-form{background:#fff;border:2px solid #bfdbfe;border-radius:16px;padding:16px 20px}
+.blank-form p{line-height:1.85;margin:8px 0}
+.blank-form input{width:118px;max-width:26%;height:46px;border:2px solid #93c5fd;border-radius:9px;padding:4px 8px;font-size:22px;text-align:center;background:#f8fbff}
+.blank-form input.wide{width:260px;max-width:42%}
+.blank-form button,.action{min-height:54px;border:0;border-radius:12px;padding:10px 22px;background:#1d4ed8;color:white;font-size:20px;font-weight:800;cursor:pointer}
+.feedback{font-size:19px;font-weight:750;margin-top:10px;min-height:28px}
+.solution{display:none;background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:12px 16px;margin-top:10px}
+.solution.show{display:block}
+.proof-list{font-size:1.05em;line-height:1.55}
+.center{text-align:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+svg{max-width:100%;height:auto}
+@media print{.blank-form input{border:1px solid #555;background:white}.action{display:none}}
+</style>
+</head>
+<body data-theme="ppt" style="--accent:#2563eb">
+
+<section class="slide cover" id="cover" data-title="표지">
+  <div class="band"><p class="kicker">고등학교 1학년 · 공통수학2 · 2차시 활동 수업</p></div>
+  <h1>명제의 증명<br><span style="color:#2563eb">논리를 조립하고 완성하다</span></h1>
+  <p class="big">29번 · 30번 활동지</p>
+  <div class="card" style="position:absolute;right:90px;bottom:115px;width:360px">
+    <p class="tag">오늘의 학습 순서</p>
+    <p class="big">생각하기 → 함께하기</p>
+    <p>개념의 빈칸을 채우고, 증명 문장을 논리적 순서로 조립한 뒤, 수식의 빈칸을 완성합니다.</p>
+  </div>
+</section>
+
+<section class="slide" id="how" data-sec="수업 안내" data-title="오늘은 증명을 어떻게 배울까?">
+  <p class="kicker">활동 방법</p><h1>증명은 두 번에 걸쳐 완성한다</h1>
+  <div class="cols">
+    <div class="card"><span class="tag">생각하기</span><h2>개념 빈칸 채우기</h2><p>정의와 핵심 원리를 읽고 빈칸에 알맞은 말을 넣습니다.</p></div>
+    <div class="card"><span class="tag">함께하기</span><h2>① 증명 순서 조립</h2><p>섞여 있는 증명 문장을 논리적인 순서대로 차례로 선택합니다.</p></div>
+    <div class="card"><span class="tag">함께하기</span><h2>② 증명 빈칸 완성</h2><p>앞에서 조립한 흐름을 보며 수식과 핵심 용어를 채웁니다.</p></div>
+    <div class="card"><span class="tag">마무리</span><h2>③ 논리 확인</h2><p>왜 그 순서인지, 등호는 언제 성립하는지 설명합니다.</p></div>
+  </div>
+  <p class="warn">순서 조립은 문장을 하나씩 눌러 쌓는 방식입니다. 정답 순서로 나열된 문장을 엔진이 섞어 제시합니다.</p>
+</section>
+
+<section class="slide chapter" id="ch29" data-sec="1차시 · 활동지 29번" data-title="대우와 귀류법"><p class="kicker">1차시</p><h1>대우를 이용한 증명법과 귀류법</h1></section>
+
+<section class="slide" id="think-contra" data-sec="1차시 · 대우" data-title="대우를 이용한 증명법">
+<p class="kicker">생각열기 ①</p><h1>대우를 이용한 증명법이란?</h1>
+<div class="card">
+<p class="mathline">명제 \(p \rightarrow q\)가 참이면 그 대우 <span class="blank">¬q → ¬p</span>도 참이다.</p>
+<p class="mathline">어떤 명제가 참임을 증명할 때에는 그 <span class="blank">대우</span>가 참임을 증명해도 된다.</p>
+</div>
+<p class="muted">빈칸을 눌러 핵심 내용을 확인해 보세요.</p>
+</section>
+
+<section class="slide" id="contra-rule" data-sec="1차시 · 대우" data-title="대우 증명의 흐름">
+<p class="kicker">핵심 정리</p><h1>대우를 이용하면 무엇이 달라질까?</h1>
+<div class="cols">
+<div class="card"><h2>원래 명제</h2><p class="mathline">p이면 q이다.</p><p>가정 p에서 결론 q를 직접 이끌어 냅니다.</p></div>
+<div class="card"><h2>대우</h2><p class="mathline">q가 아니면 p가 아니다.</p><p>결론이 아닌 경우를 가정하여 가정도 성립하지 않음을 보입니다.</p></div>
+</div>
+<div class="callout"><b>기억하기</b>　원래 명제와 대우는 참·거짓이 항상 같습니다.</div>
+</section>
+
+<section class="slide" id="c1-order" data-sec="1차시 · 대우" data-title="증명의 순서를 조립해 보자">
+<p class="kicker">함께하기 ① · 1번</p><h1>n²이 짝수이면 n도 짝수이다</h1>
+<p class="q">대우를 이용한 증명의 문장을 올바른 순서로 선택하세요.</p>
+<ol class="order">
+<li data-why="대우를 증명하기 위해 n이 홀수라고 가정한다.">n이 홀수라고 가정한다.</li>
+<li data-why="홀수의 정의에 따라 n을 2k+1로 나타낸다.">n = 2k−1 (k는 자연수)로 나타낸다.</li>
+<li data-why="대입하여 n²을 2의 배수에 1을 더한 꼴로 정리한다.">n² = (2k−1)² = 2(2k²−2k)+1이다.</li>
+<li data-why="2(정수)+1은 홀수이므로 n²은 홀수이다.">따라서 n²은 홀수이다.</li>
+<li data-why="대우가 참이므로 원래 명제도 참이다.">대우가 참이므로 원래 명제도 참이다.</li>
+</ol>
+<p class="step callout">정리: n²이 짝수이면 n도 짝수이다.</p>
+</section>
+
+<section class="slide" id="c1-fill" data-sec="1차시 · 대우" data-title="대우 증명 빈칸 완성">
+<p class="kicker">함께하기 ① · 1번</p><h1>조립한 순서를 보며 빈칸을 채우자</h1>
+<div class="blank-form" data-fill="c1">
+<p>주어진 명제의 대우는 ‘n이 <input data-answer="홀수" aria-label="첫 번째 빈칸">이면 n²은 <input data-answer="홀수" aria-label="두 번째 빈칸">이다.’</p>
+<p>n이 홀수이면 n = <input data-answer="2k−1" aria-label="세 번째 빈칸"> (k는 자연수)로 나타낼 수 있으므로</p>
+<p class="mathline">n² = ( <input data-answer="2k−1" aria-label="네 번째 빈칸"> )² = 4k²+4k+1 = 2( <input data-answer="2k²−2k" aria-label="다섯 번째 빈칸"> )+1</p>
+<p>따라서 n²은 <input data-answer="홀수" aria-label="여섯 번째 빈칸">이다. 대우가 참이므로 주어진 명제도 <input data-answer="참" aria-label="일곱 번째 빈칸">이다.</p>
+<button type="button" class="action" onclick="checkFill('c1')">정답 확인</button><div class="feedback" id="fb-c1"></div>
+<div class="solution" id="sol-c1">정답: 홀수 / 홀수 / 2k−1 / 2k−1 / 2k²−2k / 홀수 / 참</div>
+</div>
+</section>
+
+<section class="slide" id="c2-order" data-sec="1차시 · 대우" data-title="두 자연수의 곱이 짝수일 때">
+<p class="kicker">함께하기 ① · 2번</p><h1>mn이 짝수이면 m 또는 n은 짝수이다</h1>
+<p class="q">대우의 증명 흐름을 순서대로 조립하세요.</p>
+<ol class="order">
+<li data-why="대우는 m과 n이 모두 홀수이면 mn이 홀수라는 명제이다.">m과 n이 모두 홀수라고 가정한다.</li>
+<li data-why="홀수의 정의를 이용해 두 수를 나타낸다.">m=2k−1, n=2l−1로 나타낸다.</li>
+<li data-why="두 식을 곱해 2의 배수에 1을 더한 꼴로 정리한다.">mn=2(2kl−k−l)+1이다.</li>
+<li data-why="2(정수)+1은 홀수이므로 mn은 홀수이다.">따라서 mn은 홀수이다.</li>
+<li data-why="대우가 참이므로 원래 명제도 참이다.">대우가 참이므로 원래 명제도 참이다.</li>
+</ol>
+<p class="step callout">두 수가 모두 홀수이면 그 곱도 홀수임을 이용했습니다.</p>
+</section>
+
+<section class="slide" id="c2-fill" data-sec="1차시 · 대우" data-title="두 자연수의 곱 증명 완성">
+<p class="kicker">함께하기 ① · 2번</p><h1>증명 빈칸을 완성하자</h1>
+<div class="blank-form" data-fill="c2">
+<p>대우: m과 n이 모두 <input data-answer="홀수">이면 mn은 <input data-answer="홀수">이다.</p>
+<p>m=2k−1, n=<input data-answer="2l−1">로 나타낼 수 있으므로</p>
+<p class="mathline">mn = (2k−1)(2l−1) = 2(<input data-answer="2kl−k−l">)+1</p>
+<p>따라서 mn은 <input data-answer="홀수">이다. 대우가 참이므로 원래 명제도 <input data-answer="참">이다.</p>
+<button type="button" class="action" onclick="checkFill('c2')">정답 확인</button><div class="feedback" id="fb-c2"></div>
+<div class="solution" id="sol-c2">정답: 홀수 / 홀수 / 2l−1 / 2kl−k−l / 홀수 / 참</div>
+</div>
+</section>
+
+<section class="slide" id="c3-order" data-sec="1차시 · 대우" data-title="3의 배수에 관한 증명">
+<p class="kicker">함께하기 ① · 3번</p><h1>n²이 3의 배수이면 n도 3의 배수이다</h1>
+<p class="q">대우를 증명하는 순서를 조립하세요.</p>
+<ol class="order">
+<li data-why="대우는 n이 3의 배수가 아니면 n²도 3의 배수가 아니라는 명제이다.">n이 3의 배수가 아니라고 가정한다.</li>
+<li data-why="3의 배수가 아닌 자연수는 3k+1 또는 3k+2 꼴이다.">n=3k−2 또는 n=3k−1로 나타낸다.</li>
+<li data-why="첫 번째 경우를 제곱하면 3의 배수에 1을 더한 꼴이다.">n=3k−2이면 n²=3(3k²−4k+1)+1이다.</li>
+<li data-why="두 번째 경우도 제곱하면 3의 배수에 1을 더한 꼴이다.">n=3k−1이면 n²=3(3k²−2k)+1이다.</li>
+<li data-why="두 경우 모두 n²은 3의 배수가 아니므로 대우가 참이다.">두 경우 모두 n²은 3의 배수가 아니므로 원래 명제도 참이다.</li>
+</ol>
+<p class="step callout">두 경우를 빠짐없이 나누어 확인했습니다.</p>
+</section>
+
+<section class="slide" id="c3-fill" data-sec="1차시 · 대우" data-title="3의 배수 증명 빈칸 완성">
+<p class="kicker">함께하기 ① · 3번</p><h1>두 경우의 식을 완성하자</h1>
+<div class="blank-form" data-fill="c3">
+<p>대우: n이 3의 배수가 아니면 n²은 3의 배수가 <input data-answer="아니다">.</p>
+<p>n=3k−2 또는 n=<input data-answer="3k−1">로 나타낼 수 있다.</p>
+<p>(i) n=3k−2일 때, n²=3(<input data-answer="3k²−4k+1">)+1</p>
+<p>(ii) n=3k−1일 때, n²=3(<input data-answer="3k²−2k">)+1</p>
+<p>두 경우 모두 n²은 3의 배수가 <input data-answer="아니므로"> 대우가 참이고, 원래 명제도 <input data-answer="참">이다.</p>
+<button type="button" class="action" onclick="checkFill('c3')">정답 확인</button><div class="feedback" id="fb-c3"></div>
+<div class="solution" id="sol-c3">정답: 아니다 / 3k−1 / 3k²−4k+1 / 3k²−2k / 아니므로 / 참</div>
+</div>
+</section>
+
+<section class="slide" id="wason" data-sec="1차시 · 대우" data-title="카드 퍼즐로 대우 이해하기">
+<p class="kicker">함께하기 ① · 4번</p><h1>어떤 카드를 뒤집어야 할까?</h1>
+<p>명제: 카드의 한쪽 면에 짝수가 적혀 있으면 다른 쪽 면에는 빨간색이 칠해져 있다.</p>
+<div class="grid2 center">
+<div class="card"><h2>5</h2><p>홀수</p></div><div class="card"><h2>8</h2><p>짝수</p></div>
+<div class="card" style="background:#ef4444;color:white"><h2>빨강</h2><p>빨간색</p></div><div class="card" style="background:#2563eb;color:white"><h2>파랑</h2><p>파란색</p></div>
+</div>
+<div class="quiz" data-cols="2">
+<button class="opt" data-why="짝수 뒤에 빨간색이 있는지 확인해야 한다.">8과 빨간색 카드</button>
+<button class="opt" data-ok data-why="짝수 카드의 뒷면과 파란색 카드의 뒷면을 확인해야 규칙 위반 여부를 알 수 있다.">8과 파란색 카드</button>
+<button class="opt" data-why="홀수 뒤의 색은 명제의 조건에 해당하지 않는다.">5와 빨간색 카드</button>
+<button class="opt" data-why="홀수 뒤의 색은 명제의 조건에 해당하지 않는다.">5와 파란색 카드</button>
+</div>
+</section>
+
+<section class="slide" id="think-contradiction" data-sec="1차시 · 귀류법" data-title="귀류법이란?">
+<p class="kicker">생각열기 ②</p><h1>귀류법이란 무엇일까?</h1>
+<div class="card">
+<p class="mathline">주어진 명제의 <span class="blank">부정</span>이 참이라고 가정한다.</p>
+<p class="mathline">이미 알려진 사실에 <span class="blank">모순</span>됨을 보여 명제가 참임을 증명한다.</p>
+<p class="mathline">이 방법을 <span class="blank">귀류법</span>이라고 한다.</p>
+</div>
+</section>
+
+<section class="slide" id="irr-order" data-sec="1차시 · 귀류법" data-title="√2가 무리수임을 증명하는 순서">
+<p class="kicker">함께하기 ② · 1번</p><h1>√2는 유리수가 아니다</h1>
+<p class="q">귀류법의 흐름을 순서대로 조립하세요.</p>
+<ol class="order">
+<li data-why="명제의 부정을 가정하여 √2가 유리수라고 둔다.">√2가 유리수라고 가정한다.</li>
+<li data-why="서로소인 자연수 m,n을 이용해 분수로 나타낸다.">√2=n/m (m,n은 서로소인 자연수)로 둔다.</li>
+<li data-why="양변을 제곱해 n²=2m²을 얻는다.">양변을 제곱하여 n²=2m²을 얻는다.</li>
+<li data-why="n²이 짝수이므로 n도 짝수이고, n=2k를 대입하면 m²도 짝수이다.">n과 m이 모두 짝수임을 보인다.</li>
+<li data-why="서로소라는 가정과 모순이므로 √2는 무리수이다.">서로소라는 가정에 모순이므로 √2는 무리수이다.</li>
+</ol>
+<p class="step callout">핵심 모순: 서로소인 두 자연수가 모두 짝수일 수는 없습니다.</p>
+</section>
+
+<section class="slide" id="irr-fill" data-sec="1차시 · 귀류법" data-title="√2 증명 빈칸 완성">
+<p class="kicker">함께하기 ② · 1번</p><h1>모순이 생기는 과정을 채우자</h1>
+<div class="blank-form" data-fill="irr">
+<p>√2가 유리수라고 가정하면 √2=<input data-answer="n/m"> (m,n은 서로소인 자연수)</p>
+<p class="mathline">n²=2m²</p>
+<p>n²이 짝수이므로 n도 <input data-answer="짝수">이다. n=<input data-answer="2k">로 두면</p>
+<p class="mathline">(2k)²=2m², 즉 m²=<input data-answer="2k²"></p>
+<p>m²이 짝수이므로 m도 <input data-answer="짝수">이다.</p>
+<p>m,n이 모두 짝수이므로 서로소라는 가정에 <input data-answer="모순">이다.</p>
+<p>따라서 √2는 <input data-answer="유리수가 아니다">.</p>
+<button type="button" class="action" onclick="checkFill('irr')">정답 확인</button><div class="feedback" id="fb-irr"></div>
+<div class="solution" id="sol-irr">정답: n/m / 짝수 / 2k / 2k² / 짝수 / 모순 / 유리수가 아니다</div>
+</div>
+</section>
+
+<section class="slide" id="ab-order" data-sec="1차시 · 귀류법" data-title="제곱의 합이 0일 때">
+<p class="kicker">함께하기 ② · 2번</p><h1>a²+b²=0이면 a=0이고 b=0이다</h1>
+<p class="q">결론을 부정한 뒤 세 경우를 확인하는 순서를 조립하세요.</p>
+<ol class="order">
+<li data-why="결론의 부정은 a와 b 중 적어도 하나가 0이 아니라는 뜻이다.">a≠0 또는 b≠0이라고 가정한다.</li>
+<li data-why="a≠0, b=0이면 a²>0이므로 합은 0보다 크다.">a≠0, b=0이면 a²+b²>0이다.</li>
+<li data-why="a=0, b≠0이면 b²>0이므로 합은 0보다 크다.">a=0, b≠0이면 a²+b²>0이다.</li>
+<li data-why="a≠0, b≠0이면 두 제곱이 모두 양수이므로 합은 0보다 크다.">a≠0, b≠0이면 a²+b²>0이다.</li>
+<li data-why="모든 경우가 a²+b²=0과 모순이므로 결론이 참이다.">세 경우 모두 가정에 모순이므로 a=b=0이다.</li>
+</ol>
+<p class="step callout">a와 b가 동시에 0이 아닌 경우를 빠짐없이 나누었습니다.</p>
+</section>
+
+<section class="slide" id="ab-fill" data-sec="1차시 · 귀류법" data-title="제곱의 합 증명 완성">
+<p class="kicker">함께하기 ② · 2번</p><h1>세 경우를 빈칸에 정리하자</h1>
+<div class="blank-form" data-fill="ab">
+<p>결론을 부정하여 <input data-answer="a≠0 또는 b≠0">이라고 가정한다.</p>
+<p>(i) a≠0, b=0이면 a²>0, b²=0이므로 a²+b²>0</p>
+<p>(ii) a=0, b≠0이면 a²=0, b²>0, 즉 a²+b²=<input data-answer="b²">>0</p>
+<p>(iii) a≠0, b≠0이면 a²>0, b²>0이므로 a²+b²>0</p>
+<p>(i), (ii), (iii) 모두 <input data-answer="a²+b²=0">이라는 가정에 모순이다.</p>
+<p>따라서 a²+b²=0이면 <input data-answer="a=0이고 b=0">이다.</p>
+<button type="button" class="action" onclick="checkFill('ab')">정답 확인</button><div class="feedback" id="fb-ab"></div>
+<div class="solution" id="sol-ab">정답: a≠0 또는 b≠0 / b² / a²+b²=0 / a=0이고 b=0</div>
+</div>
+</section>
+
+<section class="slide" id="summary29" data-sec="1차시 · 정리" data-title="1차시 핵심 정리">
+<p class="kicker">1차시 마무리</p><h1>두 증명 방법의 차이를 정리하자</h1>
+<div class="cols">
+<div class="card"><h2>대우를 이용한 증명</h2><p>원래 명제의 대우를 만든다.</p><p>대우가 참임을 보이면 원래 명제도 참이다.</p></div>
+<div class="card"><h2>귀류법</h2><p>증명하려는 명제의 부정을 가정한다.</p><p>모순을 찾아 가정이 틀렸음을 보인다.</p></div>
+</div>
+<div class="short" data-ph="오늘 배운 증명에서 가장 중요한 논리 한 가지를 적어 보세요."><p class="ask">대우를 이용한 증명과 귀류법은 어떤 점에서 다를까?</p></div>
+</section>
+
+<section class="slide chapter" id="ch30" data-sec="2차시 · 활동지 30번" data-title="절대부등식"><p class="kicker">2차시</p><h1>절대부등식의 이해와 증명</h1></section>
+
+<section class="slide" id="absolute-think" data-sec="2차시 · 절대부등식" data-title="절대부등식이란?">
+<p class="kicker">생각열기 ①</p><h1>항상 성립하는 부등식은?</h1>
+<div class="card">
+<p class="mathline">x²−1≤0은 −1≤x≤1일 때 성립하지만, 모든 실수에서 성립하지는 않는다.</p>
+<p class="mathline">그러나 x+5>x는 <span class="blank">모든 실수 x</span>에 대하여 항상 성립한다.</p>
+<p>부등식의 문자에 어떤 실수를 대입하여도 항상 성립하는 부등식을 <span class="blank">절대부등식</span>이라고 한다.</p>
+</div>
+</section>
+
+<section class="slide" id="absolute-quiz" data-sec="2차시 · 절대부등식" data-title="절대부등식 판별">
+<p class="kicker">함께하기 ①</p><h1>다음 중 절대부등식인 것은?</h1>
+<div class="quiz" data-multi data-cols="1" data-why="모든 실수 x에서 항상 성립하는 부등식은 (3)이다.">
+<button class="opt">(1) (x−1)(x−2)≥0</button>
+<button class="opt">(2) 5x−1>3x−1</button>
+<button class="opt" data-ok>(3) |x+3|≥0</button>
+</div>
+<p class="step callout">절대부등식인지 판단할 때는 모든 실수에 대해 항상 성립하는지 확인합니다.</p>
+</section>
+
+<section class="slide" id="properties" data-sec="2차시 · 절대부등식" data-title="증명에 사용할 기본 성질">
+<p class="kicker">증명의 도구</p><h1>두 실수 a, b에 대하여</h1>
+<div class="card proof-list">
+<p>① a>b ⇔ <span class="blank">a−b</span>>0</p>
+<p>② a² ≥ <span class="blank">0</span></p>
+<p>③ a²+b² ≥ <span class="blank">0</span></p>
+<p>④ a²+b²=0 ⇔ a=b=<span class="blank">0</span></p>
+<p>⑤ a>0, b>0일 때 a>b ⇔ a²><span class="blank">b²</span></p>
+<p>⑥ |a|²=<span class="blank">a²</span>, |a||b|=|ab|, |a|≥a</p>
+</div>
+</section>
+
+<section class="slide" id="ineq1-order" data-sec="2차시 · 절대부등식" data-title="a²+b²≥ab 증명 순서">
+<p class="kicker">함께하기 ② · 1번</p><h1>a²+b²≥ab임을 증명하자</h1>
+<p class="q">A≥B ⇔ A−B≥0을 이용합니다. 증명 순서를 조립하세요.</p>
+<ol class="order">
+<li data-why="주어진 부등식의 좌변에서 우변을 뺀 식이 0 이상임을 보인다.">a²+b²−ab≥0임을 보이면 된다.</li>
+<li data-why="완전제곱식이 되도록 a²−ab에 1/4 b²를 더하고 뺀다.">a²−ab+¼b²−¼b²로 나눈다.</li>
+<li data-why="앞의 세 항을 제곱식으로 묶는다.">(a−½b)²+¾b²로 정리한다.</li>
+<li data-why="제곱은 0 이상이고 b²도 0 이상이므로 전체가 0 이상이다.">(a−½b)²≥0, ¾b²≥0이므로 합은 0 이상이다.</li>
+<li data-why="두 제곱 항이 동시에 0일 때 등호가 성립한다.">등호는 a−½b=0, b=0, 즉 a=b=0일 때 성립한다.</li>
+</ol>
+<p class="step callout">제곱의 합으로 나타내면 0 이상임을 확인하기 쉽습니다.</p>
+</section>
+
+<section class="slide" id="ineq1-fill" data-sec="2차시 · 절대부등식" data-title="제곱의 완성으로 빈칸 채우기">
+<p class="kicker">함께하기 ② · 1번</p><h1>제곱의 완성 과정을 채우자</h1>
+<div class="blank-form" data-fill="ineq1">
+<p class="mathline">a²+b²−ab = a²−ab+<input data-answer="1/4">b²+<input data-answer="3/4">b²</p>
+<p class="mathline">= (a−<input data-answer="1/2">b)²+<input data-answer="3/4">b²</p>
+<p>(a−½b)²≥0, ¾b²≥0이므로 a²+b²−ab≥<input data-answer="0">이다.</p>
+<p>따라서 a²+b²≥ab이고, 등호는 a−½b=<input data-answer="0">, b=<input data-answer="0">, 즉 a=b=<input data-answer="0">일 때 성립한다.</p>
+<button type="button" class="action" onclick="checkFill('ineq1')">정답 확인</button><div class="feedback" id="fb-ineq1"></div>
+<div class="solution" id="sol-ineq1">정답: 1/4 / 3/4 / 1/2 / 3/4 / 0 / 0 / 0 / 0</div>
+</div>
+</section>
+
+<section class="slide" id="ineq2-order" data-sec="2차시 · 절대부등식" data-title="두 제곱의 합으로 나타내기">
+<p class="kicker">함께하기 ② · 2번</p><h1>(a²+b²)(x²+y²)≥(ax+by)²</h1>
+<p class="q">차이를 제곱식으로 바꾸는 순서를 조립하세요.</p>
+<ol class="order">
+<li data-why="좌변에서 우변을 뺀 식이 0 이상임을 보인다.">(a²+b²)(x²+y²)−(ax+by)²≥0을 보인다.</li>
+<li data-why="곱을 전개하고 (ax)²과 (by)² 항이 소거되도록 정리한다.">전개하여 a²y²−2abxy+b²x²를 얻는다.</li>
+<li data-why="세 항은 (ay−bx)²의 전개식이다.">(ay−bx)²으로 인수분해한다.</li>
+<li data-why="제곱은 항상 0 이상이다.">(ay−bx)²≥0이므로 주어진 부등식이 성립한다.</li>
+<li data-why="제곱식이 0일 때 등호가 성립한다.">등호는 ay−bx=0일 때 성립한다.</li>
+</ol>
+<p class="step callout">두 식의 차이를 하나의 제곱으로 나타냈습니다.</p>
+</section>
+
+<section class="slide" id="ineq2-fill" data-sec="2차시 · 절대부등식" data-title="두 제곱의 합 증명 완성">
+<p class="kicker">함께하기 ② · 2번</p><h1>식의 차이를 정리하자</h1>
+<div class="blank-form" data-fill="ineq2">
+<p>다음 식이 0 이상임을 보이면 된다.</p>
+<p class="mathline">(a²+b²)(x²+y²)−(ax+by)²</p>
+<p class="mathline">= a²y²−2abxy+b²x² = (<input data-answer="ay−bx">)² ≥ 0</p>
+<p>따라서 주어진 부등식이 성립하고, 등호는 <input data-answer="ay−bx">=<input data-answer="0">일 때 성립한다.</p>
+<button type="button" class="action" onclick="checkFill('ineq2')">정답 확인</button><div class="feedback" id="fb-ineq2"></div>
+<div class="solution" id="sol-ineq2">정답: ay−bx / ay−bx / 0</div>
+</div>
+</section>
+
+<section class="slide" id="geom-explore" data-sec="2차시 · 절대부등식" data-title="정사각형의 넓이로 생각하기">
+<p class="kicker">함께하기 ② · 3번</p><h1>정사각형과 직사각형의 넓이</h1>
+<p>한 변의 길이가 a+b인 정사각형의 넓이는 색칠한 직사각형들의 넓이의 합보다 크거나 같습니다.</p>
+<div class="card center">
+<svg viewBox="0 0 520 310" role="img" aria-label="한 변의 길이가 a+b인 정사각형을 네 직사각형으로 나눈 넓이 모형">
+<rect x="115" y="20" width="270" height="270" fill="#eff6ff" stroke="#1e40af" stroke-width="4"/>
+<rect x="115" y="20" width="135" height="135" fill="#93c5fd" stroke="#1e40af" stroke-width="2"/>
+<rect x="250" y="20" width="135" height="135" fill="#bfdbfe" stroke="#1e40af" stroke-width="2"/>
+<rect x="115" y="155" width="135" height="135" fill="#bfdbfe" stroke="#1e40af" stroke-width="2"/>
+<rect x="250" y="155" width="135" height="135" fill="#93c5fd" stroke="#1e40af" stroke-width="2"/>
+<text x="182" y="95" font-size="25" text-anchor="middle" fill="#15346b">a²</text>
+<text x="317" y="95" font-size="25" text-anchor="middle" fill="#15346b">ab</text>
+<text x="182" y="230" font-size="25" text-anchor="middle" fill="#15346b">ab</text>
+<text x="317" y="230" font-size="25" text-anchor="middle" fill="#15346b">b²</text>
+<text x="250" y="14" font-size="20" text-anchor="middle" fill="#15346b">a+b</text>
+<text x="400" y="160" font-size="20" fill="#15346b">a+b</text>
+</svg>
+<p class="muted">개념을 위한 단순화 모식도</p>
+</div>
+<div class="callout">그림에서 (a+b)²≥4ab를 얻고, 양변이 양수임을 이용해 원하는 부등식으로 연결합니다.</div>
+</section>
+
+<section class="slide" id="geom-order" data-sec="2차시 · 절대부등식" data-title="산술·기하평균 부등식 증명">
+<p class="kicker">함께하기 ② · 3번</p><h1>(a+b)/2 ≥ √ab</h1>
+<p class="q">그림에서 얻은 넓이 관계를 이용해 증명 순서를 조립하세요.</p>
+<ol class="order">
+<li data-why="정사각형의 넓이는 네 직사각형 넓이의 합보다 크거나 같다.">(a+b)²≥4ab이다.</li>
+<li data-why="a=b일 때 네 영역이 같은 넓이가 되어 등호가 성립한다.">등호는 a=b일 때 성립한다.</li>
+<li data-why="a,b가 양수이므로 a+b와 √ab도 양수이다.">a+b>0, √ab>0이다.</li>
+<li data-why="양변을 2로 나누어 원하는 부등식을 얻는다.">(a+b)/2≥√ab이다.</li>
+</ol>
+<p class="step callout">a>0, b>0이라는 조건을 이용해 양변을 나누고 제곱근을 취합니다.</p>
+</section>
+
+<section class="slide" id="geom-fill" data-sec="2차시 · 절대부등식" data-title="넓이 증명 빈칸 완성">
+<p class="kicker">함께하기 ② · 3번</p><h1>등호가 성립하는 조건까지 채우자</h1>
+<div class="blank-form" data-fill="geom">
+<p>그림에서 (a+b)²≥<input data-answer="4ab">이고 등호는 <input data-answer="a">=<input data-answer="b">일 때 성립한다.</p>
+<p>이때 a+b>0, √ab>0이므로</p>
+<p class="mathline">a+b ≥ <input data-answer="2">√ab</p>
+<p class="mathline">(a+b)/2 ≥ √ab</p>
+<button type="button" class="action" onclick="checkFill('geom')">정답 확인</button><div class="feedback" id="fb-geom"></div>
+<div class="solution" id="sol-geom">정답: 4ab / a / b / 2</div>
+</div>
+</section>
+
+<section class="slide" id="final-check" data-sec="2차시 · 정리" data-title="마지막 확인">
+<p class="kicker">2차시 마무리</p><h1>증명에서 놓치지 말아야 할 것</h1>
+<div class="card">
+<p class="big">① 증명의 순서는 논리의 순서이다.</p>
+<p class="big">② 부등식은 한쪽으로 이항하여 0 이상임을 보이면 편리하다.</p>
+<p class="big">③ 제곱식은 항상 0 이상이다.</p>
+<p class="big">④ 등호가 성립하는 조건은 각 항이 동시에 0이 되는 경우에서 찾는다.</p>
+</div>
+<div class="short" data-ph="오늘 증명에서 가장 기억에 남는 원리를 적어 보세요."><p class="ask">등호가 성립하는 조건을 함께 찾아야 하는 이유는 무엇일까?</p></div>
+</section>
+
+<script>
+function norm(s){return (s||'').replace(/\s+/g,'').replace(/[−–]/g,'-').replace(/²/g,'^2').replace(/√/g,'sqrt').toLowerCase();}
+function checkFill(id){
+ const box=document.querySelector('[data-fill="'+id+'"]');
+ const inputs=[...box.querySelectorAll('input[data-answer]')];
+ let ok=0;
+ inputs.forEach(el=>{
+   const good=norm(el.value)===norm(el.dataset.answer);
+   el.style.borderColor=good?'#16a34a':'#ef4444';
+   el.style.background=good?'#f0fdf4':'#fff1f2';
+   if(good)ok++;
+ });
+ const fb=document.getElementById('fb-'+id);
+ fb.textContent=ok===inputs.length?'모두 정답입니다! 증명을 완성했어요.':`${inputs.length}개 중 ${ok}개 정답입니다. 빨간 칸을 다시 확인해 보세요.`;
+ fb.style.color=ok===inputs.length?'#15803d':'#b91c1c';
+ if(ok===inputs.length)document.getElementById('sol-'+id).classList.add('show');
+}
+document.addEventListener('keydown',e=>{
+ if(e.key==='Enter' && e.target.matches('.blank-form input')){
+   const box=e.target.closest('[data-fill]'); if(box)checkFill(box.dataset.fill);
+ }
+});
+</script>
+</body>
+</html>
